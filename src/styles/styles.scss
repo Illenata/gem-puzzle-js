@@ -1,0 +1,219 @@
+@import "~normalize.css";
+
+@font-face {
+  font-family: 'Pangolin';
+  src: url("./../assets/fonts/Pangolin-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pangolin', cursive;
+}
+
+html {
+    font-size: 16px;
+    transition: font-size .5s, width .5s, height .5s, margin .5s, padding .5s;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background: url("./../assets/images/bg.png");
+}
+
+@mixin btns {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    font-size: 1.7rem;
+    color: rgba(27, 27, 27, 0.7);
+    transition: all .3s;
+}
+
+@mixin btnsHover {
+    color: rgba(27, 27, 27, 0.9);
+    text-shadow: 5px 5px 4px  rgba(27, 27, 27, 0.5);
+    cursor: pointer;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 40rem;
+}
+
+.btns {
+    @include btns();
+}
+
+.btns:hover {
+    @include btnsHover();
+}
+
+.topMenu {
+    margin-bottom: 2.5rem;
+}
+
+.disable:hover {
+    color: rgba(27, 27, 27, 0.7);
+    text-shadow: none;
+    cursor: default;
+}
+
+.time {
+    width: 10rem;
+}
+
+.btnMenu {
+    justify-self: center;
+}
+
+.steps {
+    justify-self: end;
+}
+
+.divMenu {
+    position: fixed;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: auto;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 40rem;
+    height: 40rem;
+    text-align: center;
+    background: url("./../assets/images/field.jpg");
+    transition: all .5s;
+}
+
+.dimm {
+    margin: 0 1vw;
+    font-size: 1.2vw;
+}
+
+.puzzle-wrapper {
+    position: relative;
+    display: flex;
+    width: 40rem;
+    height: 40rem;
+    background: url("./../assets/images/field.jpg") fixed;
+    background-size: cover;
+    box-shadow:
+        0rem 0rem 0rem .4rem rgba(0,0,0,0.6),
+        0rem 0rem 0rem 2.6rem #fff,
+        0rem 0rem 0rem 3rem rgba(0,0,0,0.2),
+        1rem .9rem 1.1rem 3rem #555;
+}
+
+.cell {
+    position: absolute;
+    transition: opacity .3s, filter .3s;
+    filter: saturate(50%) brightness(.8);
+}
+
+.cell:hover {
+    cursor: pointer;
+    filter: saturate(100%) brightness(1.2);
+}
+
+.msg {
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 3.7rem;
+    color: rgb(194, 196, 117);
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.closeMsgBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    font-size: 1.7rem;
+    text-align: center;
+    color:rgb(109, 100, 52);
+}
+
+
+.closeMsgBtn:hover {
+    color: rgb(194, 196, 117);
+    cursor: pointer;
+}
+
+.bestScores {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 0;
+    font-size: 3rem;
+    color: rgb(194, 196, 117);
+    opacity: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all .3s;
+}
+
+.table {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1.5rem;
+}
+
+.lastResult {
+    margin: .5vw .5vw 0;
+    font-size: 2rem;
+    color: rgb(172, 158, 83);
+}
+
+.places, .countStep {
+    p {
+        margin: .7rem;
+    }
+}
+
+.closeScoreBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+    color: rgb(109, 100, 52);
+}
+
+.closeScoreBtn:hover {
+    color: rgb(194, 196, 117);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 2vw;
+    }
+}
